@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Write a program to find the sum of smallest prime and biggest composite number
+
+      let arr = [7, 6, 3, 5, 9];
+      let smallestPrime = Infinity;
+      let largestComposite = -Infinity;
+
+      // Loop through the array to find the smallest prime and largest composite
+      for (let i = 0; i < arr.length; i++) {
+        let isPrime = true;
+
+        if (arr[i] < 2) {
+          isPrime = false;
+        } else {
+          for (let j = 2; j <= Math.sqrt(arr[i]); j++) {
+            if (arr[i] % j === 0) {
+              isPrime = false;
+              break;
+            }
+          }
+        }
+
+        if (isPrime) {
+          if (arr[i] < smallestPrime) {
+            smallestPrime = arr[i];
+          }
+        } else {
+          if (arr[i] > largestComposite) {
+            largestComposite = arr[i];
+          }
+        }
+      }
+
+      let result = smallestPrime + largestComposite;
+
+      console.log(result);
+
+      //   write a program to find the next prime number using for loop
+
+      let num = 10; 
+      let nextPrime = num + 1;
+
+      for (; ; nextPrime++) {
+        let isPrime = true;
+
+        for (let i = 2; i <= Math.sqrt(nextPrime); i++) {
+          if (nextPrime % i === 0) {
+            isPrime = false;
+            break;
+          }
+        }
+
+        if (isPrime) {
+          console.log(nextPrime); 
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>
